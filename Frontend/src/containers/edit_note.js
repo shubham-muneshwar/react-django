@@ -10,17 +10,17 @@ class EditPost extends Component{
 		this.props.viewPost(id);
 	}
 	render(){
-		const {isFetching,isFetched} = this.props.post;
+		const {isFetching,isFetched} = this.props.note;
 		return(
 			<div className="container">
-				{isFetching?<Loading/>:(isFetched?<EditPostForm data={this.props.post}/>:<Loading/>)}
+				{isFetching?<Loading/>:(isFetched?<EditPostForm data={this.props.note}/>:<Loading/>)}
 			</div>
 		);
 	}
 }
 function mapStateToPorps(state){
 	return{
-		post:state.post
+		note:state.note
 	}
 }
 

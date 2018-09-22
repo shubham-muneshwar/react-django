@@ -7,7 +7,7 @@ const intialState = {
 	isFetching:false,
 	isFetched:false,
 	error:null,
-	posts:[]
+	notes:[]
 }
 
 export default function(state=intialState,action){
@@ -16,13 +16,13 @@ export default function(state=intialState,action){
 			return {...state,isFetching:true};
 			break;
 		case FETCHED_BLOGS:
-			return {...state,isFetching:false,isFetched:true,posts:action.payload.data};
+			return {...state,isFetching:false,isFetched:true,notes:action.payload.data};
 			break;
 		case ERROR:
 			return {...state,isFetching:false,isFetched:false,error:action.payload};
 			break;
 		case POST_DELETED:
-			return {...state,posts:action.payload.data}
+			return {...state,notes:action.payload.data}
 			break;
 	}
 	return state;

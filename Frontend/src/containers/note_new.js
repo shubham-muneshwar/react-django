@@ -41,7 +41,7 @@ class PostNew extends Component{
 //we will use shorthand of mapDispatchToProps ,We could have written mapDispatchToProps function and then use bindActionCreators to map dispatch to props .but instead of doing all that we just pass the function as argument in reduxForm. 
 function mapStateToProps(state){
 	return {
-		newpost:state.newpost,
+		newnote:state.newnote,
 	}
 }
 

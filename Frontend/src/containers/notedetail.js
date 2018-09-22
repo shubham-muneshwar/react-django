@@ -7,23 +7,23 @@ import moment from 'moment';
 
 class PostDetail extends Component{
 	delete(){
-		const {data} = this.props.data.post;
+		const {data} = this.props.data.note;
 		this.props.deletePost(data.id,()=>{
 			this.props.data.history.push("/");
 		});
 	}
 	renderEditButton(){
-		const {data} = this.props.data.post;
+		const {data} = this.props.data.note;
 		const owner = data.author;
 		const requestUser = localStorage.getItem('username');
 		if(owner==requestUser){
 			return (
-				<Link className="btn" to={`/edit_post/${data.id}`}>Edit</Link>
+				<Link className="btn" to={`/edit_note/${data.id}`}>Edit</Link>
 			)
 		} 
 	}
 	renderDeleteButton(){
-		const {data} = this.props.data.post;
+		const {data} = this.props.data.note;
 		const owner = data.author;
 		const requestUser = localStorage.getItem('username');
 		if(owner==requestUser){
@@ -33,7 +33,7 @@ class PostDetail extends Component{
 		} 
 	}
 	render(){
-		const {data} = this.props.data.post;
+		const {data} = this.props.data.note;
 		console.log(data);
 		const time = moment(data.published).format("MMM Do YY") 
 		return(

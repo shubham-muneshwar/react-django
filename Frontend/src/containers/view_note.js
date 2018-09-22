@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {viewPost} from '../actions';
 
 import Loading from "../components/loading";
-import PostDetail from "../containers/postdetail";
+import PostDetail from "../containers/notedetail";
 
 class ViewPost extends Component{
 	componentWillMount() {
@@ -11,7 +11,7 @@ class ViewPost extends Component{
 		this.props.viewPost(id);
 	}
 	render(){
-		const {isFetching,isFetched} = this.props.post;
+		const {isFetching,isFetched} = this.props.note;
 		return(
 			<div className="container">
 				{isFetching?<Loading/>:(isFetched?<PostDetail data={this.props}/>:<Loading/>)}
@@ -22,7 +22,7 @@ class ViewPost extends Component{
 
 function mapStateToProps(state){
 	return{
-		post:state.post
+		note:state.note
 	}
 }
 

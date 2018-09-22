@@ -10,7 +10,7 @@ class EditForm extends Component{
 		const {data} = this.props.data;
 		//console.log(data.id);
 		this.props.editPost(formValue,data.id,()=>{
-			this.props.history.push(`/view_post/${data.id}`);
+			this.props.history.push(`/view_note/${data.id}`);
 		});
 	}
 	componentDidMount() {
@@ -29,7 +29,7 @@ class EditForm extends Component{
 				<Field component={renderInput}
 					label="Title"
 					type = "text"
-					name = "title"	
+					name = "title"
 				/>
 				<Field component={renderInput}
 				label="Content"
@@ -38,7 +38,7 @@ class EditForm extends Component{
 			/>
 				<div className="form-group">
 				 	<button className="btn btn-primary" type="submit">Save</button>
-				 	<Link to={`/view_post/${data.id}`} className="btn btn-default"> Cancel</Link>
+				 	<Link to={`/view_note/${data.id}`} className="btn btn-default"> Cancel</Link>
 				 </div>
 			</form>
 		);

@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import {Link,Route,withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
-import Applications from "./post_index";
-import PostNew from "./post_new";
-import ViewPost from './view_post';
-import EditPost from './edit_post';
+import Applications from "./note_index";
+import PostNew from "./note_new";
+import ViewPost from './view_note';
+import EditPost from './edit_note';
 import Signup from './signup_form';
 import Signin from './signin_form';
 
@@ -44,7 +44,7 @@ class Header extends Component{
 						 	<header className="navbar">
 								<section className="navbar-section">
 								   <Link to="/" className="btn btn-link">Home</Link>
-								   {authenticated?(<Link to="/create_post" className="btn btn-link">Create Post</Link>):""}
+								   {authenticated?(<Link to="/create_note" className="btn btn-link">Create Post</Link>):""}
 								</section>
 								{this.renderAuthMode(authenticated)}
 							</header>
@@ -54,9 +54,9 @@ class Header extends Component{
 				<Route exact path="/" component={requireAuth(Applications)}/>
 				<Route path = "/signup" component ={Signup}/>
 				<Route path = "/signin" component ={Signin}/>
-				<Route path = "/create_post" component= {requireAuth(PostNew)}/>
-				<Route path = "/view_post/:id" component = {requireAuth(ViewPost)}/>
-				<Route path = "/edit_post/:id" component = {requireAuth(EditPost)}/>
+				<Route path = "/create_note" component= {requireAuth(PostNew)}/>
+				<Route path = "/view_note/:id" component = {requireAuth(ViewPost)}/>
+				<Route path = "/edit_note/:id" component = {requireAuth(EditPost)}/>
 			</div>	
 		);
 	}

@@ -28,7 +28,6 @@ export function signup(formValue,callback){
 			dispatch({type:SIGNUP_ERROR,payload:errorMsg});
 		})
 	}
-
 }
 
 export function signin(formValue,callback){
