@@ -2,33 +2,33 @@ from rest_framework.serializers import (
 	ModelSerializer,
 	SerializerMethodField
 )
-from post.models import Post
+from note.models import Note
 
 
 
-class PostListSerializer(ModelSerializer):
+class NoteListSerializer(ModelSerializer):
 	author = SerializerMethodField()
 	class Meta:
-		model=Post
+		model=Note
 		fields=['id','title','content','author','published']
 
 	def get_author(self,obj):
 		return str(obj.author.username)
 
-class PostDetailSerializer(ModelSerializer):
+class NoteDetailSerializer(ModelSerializer):
 	author = SerializerMethodField()
 	class Meta:
-		model=Post
+		model=Note
 		fields=['id','title','content','published','author','published']
 		lookup_field='pk'
 
 	def get_author(self,obj):
 		return str(obj.author.username)
 
-class PostCreateSerializer(ModelSerializer):
+class NoteCreateSerializer(ModelSerializer):
 	author = SerializerMethodField()
 	class Meta:
-		model=Post
+		model=Note
 		fields=['title','content','author','published']
 	
 	def get_author(self,obj):

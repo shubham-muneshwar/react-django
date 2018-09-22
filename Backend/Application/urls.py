@@ -1,4 +1,4 @@
-"""Blog URL Configuration
+"""Application URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -11,19 +11,13 @@ Class-based views
     2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+    2. Add a URL to urlpatterns:  url(r'^application/', include('application.urls'))
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from accounts.views import FacebookLogin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blog/api/',include('post.urls'),name='blog'),
-    url(r'^accounts/api/',include('accounts.urls')),
-    url(r'^accounts/', include('allauth.urls')),
+    url(r'^application/api/',include('note.urls'),name='application'),
     url(r'^rest-auth/', include('rest_auth.urls')),
-    url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login')
-   
 ]
-
