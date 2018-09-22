@@ -2,8 +2,8 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {Field,reduxForm} from 'redux-form';
-import {renderInput} from '../utils/redux-form-fields';
-import {signin} from '../actions/Authentication';
+import {renderInput} from '../../utils/redux-form-fields';
+import {signin} from '../../actions/Authentication';
 
 class Signin extends Component{
 	formSubmit(formValue){

@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import {Link,Route,withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
-import Applications from "./note_index";
-import PostNew from "./note_new";
-import ViewPost from './view_note';
-import EditPost from './edit_note';
-import Signup from './signup_form';
-import Signin from './signin_form';
+import Applications from "./note/note_index";
+import PostNew from "./note/note_new";
+import ViewPost from './note/view_note';
+import EditPost from './note/edit_note';
+import Signup from './accounts/signup_form';
+import Signin from './accounts/signin_form';
 
 import requireAuth from './HOC/authenticate';
 
@@ -57,7 +57,7 @@ class Header extends Component{
 				<Route path = "/create_note" component= {requireAuth(PostNew)}/>
 				<Route path = "/view_note/:id" component = {requireAuth(ViewPost)}/>
 				<Route path = "/edit_note/:id" component = {requireAuth(EditPost)}/>
-			</div>	
+			</div>
 		);
 	}
 }
@@ -69,4 +69,3 @@ function mapStateToProps(state){
 }
 
 export default withRouter(connect(mapStateToProps,{signout})(Header));
-

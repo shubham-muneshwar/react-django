@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {viewPost} from '../actions';
+import {viewPost} from '../../actions';
 
-import Loading from "../components/loading";
-import PostDetail from "../containers/notedetail";
+import Loading from "../../components/loading";
+import PostDetail from "./notedetail";
 
 class ViewPost extends Component{
 	componentWillMount() {

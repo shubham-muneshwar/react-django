@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {viewPost} from '../actions';
-import Loading from '../components/loading';
-import EditPostForm from '../containers/edit_form';
+import {viewPost} from '../../actions';
+import Loading from '../../components/loading';
+import EditPostForm from './edit_form';
 
 class EditPost extends Component{
 	componentWillMount() {

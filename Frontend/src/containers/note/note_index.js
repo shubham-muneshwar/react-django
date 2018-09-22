@@ -1,13 +1,13 @@
 import React,{Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {getApplications} from "../actions";
+import {getApplications} from "../../actions";
 
 //contianers
 import Posts from "./notes";
 //dumb components
-import Loading from "../components/loading";
-import Err from "../components/error";
+import Loading from "../../components/loading";
+import Err from "../../components/error";
 
 class Applications extends Component{
 	componentDidMount() {
@@ -18,7 +18,7 @@ class Applications extends Component{
 		const isFetched = this.props.applications.isFetched;
 		return(
 			<div className="container">
-				{isFetching?(<Loading/>):(isFetched?(<Posts notes={this.props.applications.notes}/>):(<Err/>))}	
+				{isFetching?(<Loading/>):(isFetched?(<Posts notes={this.props.applications.notes}/>):(<Err/>))}
 			</div>
 		);
 	}

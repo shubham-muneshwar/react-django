@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {deletePost} from '../actions';
-import {changeMode} from '../actions';
+import {deletePost} from '../../actions';
+import {changeMode} from '../../actions';
 import moment from 'moment';
 
 class PostDetail extends Component{
@@ -20,7 +20,7 @@ class PostDetail extends Component{
 			return (
 				<Link className="btn" to={`/edit_note/${data.id}`}>Edit</Link>
 			)
-		} 
+		}
 	}
 	renderDeleteButton(){
 		const {data} = this.props.data.note;
@@ -30,12 +30,12 @@ class PostDetail extends Component{
 			return (
 				<button className="btn" onClick={this.delete.bind(this)}>Delete</button>
 			)
-		} 
+		}
 	}
 	render(){
 		const {data} = this.props.data.note;
 		console.log(data);
-		const time = moment(data.published).format("MMM Do YY") 
+		const time = moment(data.published).format("MMM Do YY")
 		return(
 			<div className="panel">
 				<div className="panel-header">
