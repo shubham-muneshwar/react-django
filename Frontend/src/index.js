@@ -14,6 +14,7 @@ import Header from './containers/header';
 import reducers from "./reducers";
 import {AUTH_USER} from './actions/types';
 
+import style from '../css/style.css'
 
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk,ReduxPromise)(createStore);
 const store = createStoreWithMiddleware(reducers);
@@ -29,5 +30,3 @@ render(
 		</Router>
 	</Provider>
 	,document.getElementById('root'));
-
-
