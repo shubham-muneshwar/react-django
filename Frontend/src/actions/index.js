@@ -20,10 +20,10 @@ import {tokenHeader} from '../utils/headers';
 
 const root_url = "http://localhost:8000/";
 
-export function getBlogs(){
-	const sub_url = "blog/api/";
+export function getApplications(){
+	const sub_url = "application/api/";
 	const url = `${root_url}${sub_url}`;
-	
+
 	const request = axios.get(url,tokenHeader());
 
 	return (dispatch) =>{
@@ -39,7 +39,7 @@ export function getBlogs(){
 }
 
 export function createPost(fromValue,callback){
-	const sub_url = "blog/api/create/";
+	const sub_url = "application/api/create/";
 	const url = `${root_url}${sub_url}`;
 	//console.log(props);
 
@@ -61,7 +61,7 @@ export function createPost(fromValue,callback){
 }
 
 export function deletePost(id,callback){
-	const sub_url = `blog/api/delete/${id}`;
+	const sub_url = `application/api/delete/${id}`;
 	const url = `${root_url}${sub_url}`;
 	const request = axios.delete(url,tokenHeader());
 
@@ -76,7 +76,7 @@ export function deletePost(id,callback){
 }
 
 export function viewPost(id){
-	const sub_url = `blog/api/detail/${id}`;
+	const sub_url = `application/api/detail/${id}`;
 	const url = `${root_url}${sub_url}`;
 	const request = axios.get(url,tokenHeader());
 	return (dispatch) =>{
@@ -89,7 +89,7 @@ export function viewPost(id){
 
 export function editPost(fromValue,id,callback){
 	console.log(fromValue);
-	const sub_url = `blog/api/update/${id}/`;
+	const sub_url = `application/api/update/${id}/`;
 	const url = `${root_url}${sub_url}`;
 	const request = axios.put(url,fromValue,tokenHeader());
 	return (dispatch) =>{

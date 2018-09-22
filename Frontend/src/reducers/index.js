@@ -1,14 +1,14 @@
 import {combineReducers} from "redux";
-import BlogReducer from "./reducer-blog";
-import NewBlogReducer from "./reducer-newBlog";
+import ApplicationReducer from "./reducer-application";
+import NewApplicationReducer from "./reducer-newApplication";
 import SinglePostReducer from "./reducer-singlepost";
 import authReducer from "./reducer-auth";
 import {reducer as formReducer} from "redux-form";
 
 const rootReducer = combineReducers({
-	blogs:BlogReducer,
+	applications:ApplicationReducer,
 	form:formReducer,
-	newpost:NewBlogReducer,
+	newpost:NewApplicationReducer,
 	post:SinglePostReducer,
 	auth:authReducer,
 })

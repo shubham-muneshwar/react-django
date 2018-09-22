@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {getBlogs} from "../actions";
+import {getApplications} from "../actions";
 
 //contianers
 import Posts from "./posts";
@@ -9,16 +9,16 @@ import Posts from "./posts";
 import Loading from "../components/loading";
 import Err from "../components/error";
 
-class Blogs extends Component{
+class Applications extends Component{
 	componentDidMount() {
-		this.props.getBlogs();
+		this.props.getApplications();
 	}
 	render(){
-		const isFetching = this.props.blogs.isFetching;
-		const isFetched = this.props.blogs.isFetched;
+		const isFetching = this.props.applications.isFetching;
+		const isFetched = this.props.applications.isFetched;
 		return(
 			<div className="container">
-				{isFetching?(<Loading/>):(isFetched?(<Posts posts={this.props.blogs.posts}/>):(<Err/>))}	
+				{isFetching?(<Loading/>):(isFetched?(<Posts posts={this.props.applications.posts}/>):(<Err/>))}	
 			</div>
 		);
 	}
@@ -26,11 +26,11 @@ class Blogs extends Component{
 
 function mapStateToProps(state){
 	return {
-		blogs:state.blogs,
+		applications:state.applications,
 	}
 }
 function mapDispatchToProps(dispatch){
-	return bindActionCreators({getBlogs},dispatch);
+	return bindActionCreators({getApplications},dispatch);
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Blogs);
+export default connect(mapStateToProps,mapDispatchToProps)(Applications);
