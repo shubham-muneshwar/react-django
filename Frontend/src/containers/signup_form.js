@@ -8,6 +8,7 @@ import {signup} from '../actions/Authentication';
 class Signup extends Component{
 
 	formSubmit(formValue){
+		console.log("formSubmit")
 		console.log(formValue);
 		this.props.signup(formValue,()=>{
 			this.props.history.push('/');
@@ -36,7 +37,7 @@ Signup = reduxForm({
 	fields:['email','username','password']
 })(Signup);
 
-Signup = withRouter(Signup); 
+Signup = withRouter(Signup);
 
 function mapStateToProps(state){
 	return{

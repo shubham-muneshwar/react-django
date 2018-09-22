@@ -3,25 +3,29 @@ import {
 	AUTH_USER,
 	UNAUTH_USER,
 	SIGNUP_USER,
-	AUTH_ERROR
+	AUTH_ERROR,
+	SIGNUP_ERROR
 } from '../types';
 
 const ROOT_URL = 'http://localhost:8000/accounts/api/';
 
 export function signup(formValue,callback){
+	console.log("callback")
+	console.log(formValue)
 	const URL = `${ROOT_URL}register/`;
 	return (dispatch) =>{
 		axios.post(URL,formValue)
 		.then((response)=>{
+			console.log(response)
 			const{username}= response.data;
-			console.log(username);
 			dispatch({type:SIGNUP_USER});
 			localStorage.setItem('token',response.data.token);
 			localStorage.setItem('username',username);
 			callback();
 		})
 		.catch((error)=>{
-			dispatch({type:AUTH_ERROR,payload:'ERROR OCCURED USERNAME MAY EXISTS IN DATABASE'});
+			var errorMsg = JSON.stringify(error.response.data)
+			dispatch({type:SIGNUP_ERROR,payload:errorMsg});
 		})
 	}
 
