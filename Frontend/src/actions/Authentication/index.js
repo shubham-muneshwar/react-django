@@ -10,10 +10,13 @@ import {
 const ROOT_URL = 'http://localhost:8000/accounts/api/';
 
 export function signup(formValue,callback){
-	console.log("callback")
-	console.log(formValue)
 	const URL = `${ROOT_URL}register/`;
 	return (dispatch) =>{
+		if(formValue['password'] != formValue['ConfirmPassword']){
+			var errorMsg = {passwords: "Passwords do not match"}
+			dispatch({type:SIGNUP_ERROR,payload:errorMsg});
+			return
+		}
 		axios.post(URL,formValue)
 		.then((response)=>{
 			console.log(response)
@@ -33,6 +36,7 @@ export function signup(formValue,callback){
 export function signin(formValue,callback){
 	const URL =`${ROOT_URL}home/login/token/`
 	return (dispatch) => {
+		console.log("loginError")
 		axios.post(URL,formValue)
 		.then((response)=>{
 			const {username}=response.data.user;
@@ -42,7 +46,7 @@ export function signin(formValue,callback){
 			callback();
 		})
 		.catch((err)=>{
-			dispatch({type:AUTH_ERROR,payload:'BAD LOGIN CREDENTIALS'});
+			dispatch({type:AUTH_ERROR,payload:'Invalid username or password.'});
 		})
 	}
 }
