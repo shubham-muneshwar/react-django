@@ -19,16 +19,15 @@ class Header extends Component{
 			this.props.history.push('/signin');
 		})
 	}
-	renderAuthMode(authenticated){
-		if(authenticated){
+	renderAuthMode(authenticated, props){
+		console.log()
+		if(authenticated && ((props.location.pathname != '/signin') || (props.location.pathname != '/signup'))){
 			return(
-				<header className="navbar">
-					<section className="navbar-section">
-						 <Link to="/" className="btn btn-link">Home</Link>
-						 {authenticated?(<Link to="/create_note" className="btn btn-link">Create Post</Link>):""}
-						 <a className="btn btn-link" onClick={this.logoutUser.bind(this)}>Logout</a>
-					</section>
-			</header>
+				<div className="nav-header">
+				 <Link to="/" className="btn btn-link"><div id='nav-logo'></div></Link>
+				 <Link to="/create_note" className="btn btn-link">Create Post</Link>
+				 <button type="button" className="btn btn-primary btn-logout pull-right" onClick={this.logoutUser.bind(this)}>Sign out</button>
+			</div>
 			);
 		}
 		return(
@@ -40,13 +39,7 @@ class Header extends Component{
 		const {authenticated} = this.props;
 		return(
 			<div className="contianer">
-				<div className="container">
-					<div className="columns">
-						<div className="column col-lg-12">
-								{this.renderAuthMode(authenticated)}
-						</div>
-					</div>
-				</div>
+				{this.renderAuthMode(authenticated, this.props)}
 				<Route exact path="/" component={requireAuth(Applications)}/>
 				<Route path = "/signup" component ={Signup}/>
 				<Route path = "/signin" component ={Signin}/>
