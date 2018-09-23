@@ -11,6 +11,7 @@ import Signin from './accounts/signin_form';
 import requireAuth from './HOC/authenticate';
 
 import {signout} from '../actions/Authentication';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Header extends Component{
 	logoutUser(){
@@ -21,16 +22,17 @@ class Header extends Component{
 	renderAuthMode(authenticated){
 		if(authenticated){
 			return(
-				<section className="navbar-section">
-				   <a className="btn btn-link" onClick={this.logoutUser.bind(this)}>Logout</a>
-				</section>
+				<header className="navbar">
+					<section className="navbar-section">
+						 <Link to="/" className="btn btn-link">Home</Link>
+						 {authenticated?(<Link to="/create_note" className="btn btn-link">Create Post</Link>):""}
+						 <a className="btn btn-link" onClick={this.logoutUser.bind(this)}>Logout</a>
+					</section>
+			</header>
 			);
 		}
 		return(
-			<section className="navbar-section">
-			    <Link to="/signup" className="btn btn-link">Sign Up</Link>
-			    <Link to="/signin" className="btn btn-link">Sign In</Link>
-			</section>
+			<div></div>
 		);
 
 	}
@@ -41,13 +43,7 @@ class Header extends Component{
 				<div className="container">
 					<div className="columns">
 						<div className="column col-lg-12">
-						 	<header className="navbar">
-								<section className="navbar-section">
-								   <Link to="/" className="btn btn-link">Home</Link>
-								   {authenticated?(<Link to="/create_note" className="btn btn-link">Create Post</Link>):""}
-								</section>
 								{this.renderAuthMode(authenticated)}
-							</header>
 						</div>
 					</div>
 				</div>
