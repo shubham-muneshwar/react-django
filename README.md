@@ -14,3 +14,10 @@ Frontend Setup:-
 cd Frontend
 npm install
 npm run dev
+
+
+TODOs:
+
+1. Handle Success messages
+2. Forgot Password thing
+3. Link to go back from user sugnup
