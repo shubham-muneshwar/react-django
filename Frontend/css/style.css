@@ -108,3 +108,101 @@
   color: #000;
   font-size: 14px;
 }
+
+
+
+/* Notes Tiles */
+
+.notes {
+  padding: 5px 20px 5px 20px;
+  background: #F7F7F9;
+  box-shadow: 0 0 1px rgba(0,0,0,.15);
+  height: 120px;
+  border: 1px bottom;
+}
+
+.notes-header {
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.notes .title {
+  font-size: 18;
+  font-family: Palatino Linotype;
+  font-weight: 600;
+}
+
+.notes .date-created {
+  font-size: 15;
+  font-family: Palatino Linotype;
+  font-style: oblique;
+}
+
+.notes .notes-content {
+  padding-top: 20px;
+  font-size: 13;
+  font-family: gotham, helvetica, arial, sans-serif;
+  text-overflow: ellipsis;
+}
+
+.notes:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+.notes .icons{
+  display: inline;
+  float: right;
+  margin-top: -20px;
+  font-size: 20;
+}
+
+.notes .icons i{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.notes-count {
+  font-family: Palatino Linotype;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.leftpane-header{
+  font-size: 30px;
+  padding: 10px;
+  font-family: fantasy;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.layout-pane.layout-pane-primary{
+  width: 400px;
+}
+
+.layout-pane{
+  width: 65% !important;
+}
+
+
+/* from: http://stackoverflow.com/questions/796087/make-a-div-into-a-link */
+.notes a span {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+
+  /* edit: added z-index */
+  z-index: 1;
+
+  /* edit: fixes overlap error in IE7/8,
+     make sure you have an empty gif */
+}
+
+a.notes-link {
+  color: #000 !important;
+  text-decoration: none !important;
+}

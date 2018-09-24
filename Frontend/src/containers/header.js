@@ -12,6 +12,7 @@ import requireAuth from './HOC/authenticate';
 
 import {signout} from '../actions/Authentication';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SplitterLayout from 'react-splitter-layout';
 
 class Header extends Component{
 	logoutUser(){
@@ -40,12 +41,22 @@ class Header extends Component{
 		return(
 			<div className="contianer">
 				{this.renderAuthMode(authenticated, this.props)}
-				<Route exact path="/" component={requireAuth(Applications)}/>
 				<Route path = "/signup" component ={Signup}/>
 				<Route path = "/signin" component ={Signin}/>
-				<Route path = "/create_note" component= {requireAuth(PostNew)}/>
-				<Route path = "/view_note/:id" component = {requireAuth(ViewPost)}/>
-				<Route path = "/edit_note/:id" component = {requireAuth(EditPost)}/>
+				<SplitterLayout>
+	        <div className="pane-left">
+						<div>
+							<Applications/>
+						</div>
+					</div>
+	        <div className="pane-right">
+						<div>
+							<Route path = "/create_note" component= {requireAuth(PostNew)}/>
+							<Route path = "/view_note/:id" component = {requireAuth(ViewPost)}/>
+							<Route path = "/edit_note/:id" component = {requireAuth(EditPost)}/>
+						</div>
+					</div>
+	      </SplitterLayout>
 			</div>
 		);
 	}

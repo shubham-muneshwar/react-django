@@ -1,33 +1,44 @@
 import React,{Component} from "react";
+import $ from 'jquery';
+import {viewPost} from '../../actions';
 import {Link} from 'react-router-dom';
 
-class Posts extends Component{
+class Notes extends Component{
+
 	renderPost(note){
 		return(
-			<div className="column col-6"  key={note.id}>
-				<div className="card">
-				  <div className="card-header">
-				    <h4 className="card-subtitle">{note.title}</h4>
+			<Link className="notes-link" to={`/edit_note/${note.id}`}  key={note.id}>
+				<div className="notes">
+					<div className="notes-header">
+						<div className="title-row">
+					    <div className="title">{note.title}</div>
+							<div className="icons">
+								<i className="fa fa-external-link" aria-hidden="true"></i>
+								<i className="fa fa-share-square-o" aria-hidden="true"></i>
+								<i className="fa fa-trash" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div className="date-created">Today</div>
 				  </div>
-				  <div className="card-body">
+				  <div className="notes-content">
 				    {note.content}
 				  </div>
-				  <div className="card-footer">
-				    <Link className="btn btn-primary" to={`/view_note/${note.id}`}>View</Link>
-				  </div>
 				</div>
-			</div>
+			</Link>
 		);
 	}
 	render(){
 		const notes = this.props.notes;
-		//console.log(notes)
 		return (
-			<div className="columns">
-				{notes.map(this.renderPost.bind(this))}
+			<div className="leftpane">
+				<div className="leftpane-header">Notes</div>
+				<div className="notes-count">14 Notes Found</div>
+				<div className="columns">
+					{notes.map(this.renderPost.bind(this))}
+				</div>
 			</div>
 		)
 	}
 }
 
-export default Posts;
+export default Notes;

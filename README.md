@@ -18,6 +18,14 @@ npm run dev
 
 TODOs:
 
+Frontend:
+Account
 1. Handle Success messages
 2. Forgot Password thing
 3. Link to go back from user sugnup
+Note
+4.
+
+Backend:
+Account
+1. Email Validation(Required)
