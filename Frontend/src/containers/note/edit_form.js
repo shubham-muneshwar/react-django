@@ -23,24 +23,19 @@ class EditForm extends Component{
 	render(){
 		const {handleSubmit} = this.props;
 		const {data} = this.props.data;
-		//console.log(this.props);
 		return(
-			<form onSubmit={handleSubmit(this.formSubmit.bind(this))}>
-				<Field component={renderInput}
-					label="Title"
-					type = "text"
-					name = "title"
-				/>
-				<Field component={renderInput}
-				label="Content"
-				type = "text"
-				name = "content"
-			/>
-				<div className="form-group">
-				 	<button className="btn btn-primary" type="submit">Save</button>
-				 	<Link to={`/view_note/${data.id}`} className="btn btn-default"> Cancel</Link>
-				 </div>
-			</form>
+			<div className="note-detail-container">
+				<div className="note-detail-top-row">
+				 	<button className="btn btn-primary save-note" type="submit">Save</button>
+					<div className="icons">
+						<i className="fa fa-external-link" aria-hidden="true"></i>
+						<i className="fa fa-share-square-o" aria-hidden="true"></i>
+						<i className="fa fa-trash" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div className="note-detail-body">
+				</div>
+			</div>
 		);
 	}
 }

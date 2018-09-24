@@ -150,16 +150,20 @@
   color: #fff;
 }
 
-.notes .icons{
+
+.icons{
   display: inline;
   float: right;
-  margin-top: -20px;
-  font-size: 20;
 }
 
-.notes .icons i{
+.icons i{
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.notes .icons{
+  font-size: 20;
+  margin-top: -20px;
 }
 
 .notes-count {
@@ -205,4 +209,24 @@
 a.notes-link {
   color: #000 !important;
   text-decoration: none !important;
+}
+
+.note-detail-container{
+  padding: 40px 0px;
+}
+
+.note-detail-container .icons{
+  font-size: 24;
+  color: #007bff;
+}
+
+
+.note-detail-top-row .save-note{
+  margin: 10;
+  padding: 0px 0;
+  width: 80;
+  margin-right: 30px;
+  color: #000;
+  font-size: 14px;
+  color: #fff;
 }
