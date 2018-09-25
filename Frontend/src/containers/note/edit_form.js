@@ -6,16 +6,36 @@ import {renderInput} from '../../utils/redux-form-fields';
 import {editPost} from '../../actions';
 
 import {deletePost} from '../../actions';
+import {changeMode} from '../../actions';
+
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 
 class EditForm extends Component{
-	delete(){
-		console.log(this)
-		const {data} = this.props;
+
+	confirmDelete(){
+		const {data} = this.props.data;
 		this.props.deletePost(data.id,()=>{
-			this.props.data.history.push("/");
+			window.location.reload();
 		});
 	}
+
+	delete = () => {
+    confirmAlert({
+      title: 'Confirm delete',
+      message: 'Are you sure to do delete this note?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.confirmDelete()
+        },
+        {
+          label: 'No'
+        }
+      ]
+    })
+  };
 
 	formSubmit(formValue){
 		const {data} = this.props.data;
@@ -72,4 +92,4 @@ EditForm = reduxForm({
 })(EditForm);
 
 
-export default connect(null,{editPost})(EditForm);
+export default connect(null,{editPost,deletePost,changeMode})(EditForm);
