@@ -26,7 +26,7 @@ class Header extends Component{
 			return(
 				<div className="nav-header">
 				 <Link to="/" className="btn btn-link"><div id='nav-logo'></div></Link>
-				 <Link to="/create_note" className="btn btn-link">Create Post</Link>
+				 <Link to="/create_note" className="btn btn-link" title="New Note"><i className="new-note fa fa-plus-circle" aria-hidden="true"></i></Link>
 				 <button type="button" className="btn btn-primary btn-logout pull-right" onClick={this.logoutUser.bind(this)}>Sign out</button>
 			</div>
 			);

@@ -3,6 +3,7 @@ import {Field,reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {createPost} from "../../actions/index";
 import {Link} from "react-router-dom";
+import {renderInput} from '../../utils/redux-form-fields';
 
 class PostNew extends Component{
 	onSubmit(formValue){
@@ -14,25 +15,29 @@ class PostNew extends Component{
 	render(){
 		const {fields:{title,content},handleSubmit} = this.props;
 		return(
-			<div className="columns">
-				<div className="column col-4"></div>
-				<div className="column col-4">
-					<form onSubmit = {handleSubmit(this.onSubmit.bind(this))}>
-						<div className="form-group">
-							<label className="form-label">Title</label>
-							<Field component="input"  name="title" type="text" className="form-input" placeholder="Enter the title of the Post"/>
-						</div>
-						 <div className="form-group">
-						    <label className="form-label">Message</label>
-						    <Field component="textarea" name="content" className="form-input" id="input-example-3" placeholder="Textarea" rows="3"/>
-						 </div>
-						 <div className="form-group">
-						 	<button className="btn btn-primary" type="submit" id="vini">Post</button>
-						 	<Link to="/" className="btn btn-default"> Cancel</Link>
-						 </div>
-					</form>
+			<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+				<div className="note-detail-container">
+					<div className="note-detail-top-row">
+					 	<button className="btn btn-primary save-note" type="submit">Save</button>
+					</div>
+					<div className="note-title">
+						<Field component={renderInput}
+							label="Title"
+							type = "text"
+							name = "title"
+							placeholder="Note Title"
+							/>
+					</div>
+					<div className="note-content">
+						<Field component={renderInput}
+						label="Content"
+						type = "text"
+						name = "content"
+						placeholder="Note Content"
+						/>
+					</div>
 				</div>
-			</div>
+		</form>
 		);
 	}
 }

@@ -261,3 +261,9 @@ a.notes-link {
   border-bottom: 0.04rem solid lightblue;
   word-break: break-word;
 }
+
+.new-note {
+  font-size: 30px !important;
+  margin-bottom: -10;
+  margin-left: -20;
+}
