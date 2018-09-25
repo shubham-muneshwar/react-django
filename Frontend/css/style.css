@@ -267,3 +267,11 @@ a.notes-link {
   margin-bottom: -10;
   margin-left: -20;
 }
+
+.fa-share-square-o {
+  cursor: pointer;
+}
+
+.fa.fa-trash {
+  cursor: pointer;
+}

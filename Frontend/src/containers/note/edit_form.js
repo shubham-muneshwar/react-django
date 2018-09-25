@@ -60,9 +60,8 @@ class EditForm extends Component{
 					<div className="note-detail-top-row">
 					 	<button className="btn btn-primary save-note" type="submit">Save</button>
 						<div className="icons">
-							<i className="fa fa-external-link" aria-hidden="true"></i>
 							<i className="fa fa-share-square-o" aria-hidden="true"></i>
-							<i className="fa fa-trash" onClick={this.delete.bind(this)} aria-hidden="true"></i>
+							<i className="fa fa-trash" onClick={this.delete.bind(this)} aria-hidden="true"><a></a></i>
 						</div>
 					</div>
 					<div className="note-title">
