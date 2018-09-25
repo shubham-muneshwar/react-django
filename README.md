@@ -24,7 +24,9 @@ Account
 2. Forgot Password thing
 3. Link to go back from user sugnup
 Note
-4.
+4. Input -> TextArea
+5. Add Date and created BY
+
 
 Backend:
 Account

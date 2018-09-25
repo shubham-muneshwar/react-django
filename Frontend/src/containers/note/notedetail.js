@@ -8,6 +8,7 @@ import moment from 'moment';
 class PostDetail extends Component{
 	delete(){
 		const {data} = this.props.data.note;
+		console.log(this.props.data)
 		this.props.deletePost(data.id,()=>{
 			this.props.data.history.push("/");
 		});

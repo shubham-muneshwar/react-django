@@ -5,10 +5,21 @@ import {Link,withRouter} from 'react-router-dom';
 import {renderInput} from '../../utils/redux-form-fields';
 import {editPost} from '../../actions';
 
+import {deletePost} from '../../actions';
+
+
 class EditForm extends Component{
+	delete(){
+		console.log(this)
+		const {data} = this.props;
+		this.props.deletePost(data.id,()=>{
+			this.props.data.history.push("/");
+		});
+	}
+
 	formSubmit(formValue){
 		const {data} = this.props.data;
-		//console.log(data.id);
+		console.log(data);
 		this.props.editPost(formValue,data.id,()=>{
 			this.props.history.push(`/edit_note/${data.id}`);
 		});
@@ -31,7 +42,7 @@ class EditForm extends Component{
 						<div className="icons">
 							<i className="fa fa-external-link" aria-hidden="true"></i>
 							<i className="fa fa-share-square-o" aria-hidden="true"></i>
-							<i className="fa fa-trash" aria-hidden="true"></i>
+							<i className="fa fa-trash" onClick={this.delete.bind(this)} aria-hidden="true"></i>
 						</div>
 					</div>
 					<div className="note-title">
