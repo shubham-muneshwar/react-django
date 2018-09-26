@@ -7,6 +7,7 @@ import ViewPost from './note/view_note';
 import EditPost from './note/edit_note';
 import Signup from './accounts/signup_form';
 import Signin from './accounts/signin_form';
+import NotesHome from './note/notes_home';
 
 import requireAuth from './HOC/authenticate';
 
@@ -47,6 +48,7 @@ class Header extends Component{
 					</div>
 					<div className="pane-right">
 						<div>
+							<Route path = "/" component= {requireAuth(NotesHome)}/>
 							<Route path = "/create_note" component= {requireAuth(PostNew)}/>
 							<Route path = "/view_note/:id" component = {requireAuth(ViewPost)}/>
 							<Route path = "/edit_note/:id" component = {requireAuth(EditPost)}/>

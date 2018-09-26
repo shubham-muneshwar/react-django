@@ -59,6 +59,9 @@ class Signup extends Component{
 									<Field component={renderInput} label="Password" name="password" type="password" placeholder="Password"/>
 									<Field component={renderInput} label="ConfirmPassword" name="ConfirmPassword" type="password" placeholder="Confirm Password"/>
 					        <button type="submit" className="btn btn-primary">Sign up</button>
+									<div className="newuser-signup">
+					          <a href="/signin">Already have an account.</a>
+					        </div>
 								</div>
 				      </form>
 				    </div>

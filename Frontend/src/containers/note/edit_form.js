@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {Field,reduxForm} from 'redux-form';
 import {Link,withRouter} from 'react-router-dom';
-import {renderInput} from '../../utils/redux-form-fields';
+import {renderInput, renderTextArea} from '../../utils/redux-form-fields';
 import {editPost} from '../../actions';
 
 import {deletePost} from '../../actions';
@@ -97,7 +97,7 @@ class EditForm extends Component{
 						/>
 					</div>
 					<div className="note-content">
-						<Field component={renderInput}
+						<Field component={renderTextArea}
 						label="Content"
 						type = "text"
 						name = "content"

@@ -53,8 +53,8 @@
   text-decoration: underline;
 }
 .login-form  .btn.btn-primary {
-  background: #f0ad4e none repeat scroll 0 0;
-  border-color: #f0ad4e;
+  background: #007bff none repeat scroll 0 0;
+  border-color: #007bff;
   color: #ffffff;
   font-size: 14px;
   width: 100%;
@@ -257,6 +257,15 @@ a.notes-link {
   border: none;
   box-shadow: none;
   border-bottom: 0.04rem solid lightblue;
+  background: #f4f4fc;
+}
+
+.note-detail-container textarea{
+  height: 400px;
+}
+
+.note-detail-container textarea:focus{
+  background: #f4f4fc;
 }
 
 .note-detail-container .note-content input{

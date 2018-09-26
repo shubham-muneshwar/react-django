@@ -7,3 +7,11 @@ export const renderInput = ({input,label,type,placeholder,meta:{touched,error},d
 		</div>
 	);
 };
+
+export const renderTextArea = ({input,label,type,placeholder,meta:{touched,error},disabled}) =>{
+	return(
+		<div className="form-group">
+		  <textarea className="form-control" type={type} placeholder={placeholder} {...input}/>
+		</div>
+	);
+};
