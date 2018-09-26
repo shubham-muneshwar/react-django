@@ -12,11 +12,6 @@ class Notes extends Component{
 					<div className="notes-header">
 						<div className="title-row">
 					    <div className="title">{note.title}</div>
-							<div className="icons">
-								<i className="fa fa-external-link" aria-hidden="true"></i>
-								<i className="fa fa-share-square-o" aria-hidden="true"></i>
-								<i className="fa fa-trash" aria-hidden="true"></i>
-							</div>
 						</div>
 						<div className="date-created">Today</div>
 				  </div>

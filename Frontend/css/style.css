@@ -166,6 +166,10 @@
   margin-top: -20px;
 }
 
+.icons .text{
+  font-size: 14;
+}
+
 .notes-count {
   font-family: Palatino Linotype;
   text-align: center;
@@ -268,10 +272,19 @@ a.notes-link {
   margin-left: -20;
 }
 
-.fa-share-square-o {
+.fa {
   cursor: pointer;
 }
 
-.fa.fa-trash {
-  cursor: pointer;
+.fa.fa-trash{
+  margin-top: 8px
+}
+
+.splitter-layout{
+  height: 90% !important;
+  background: #f4f4fc;
+}
+
+.form-control{
+  background: #f4f4fc;
 }
