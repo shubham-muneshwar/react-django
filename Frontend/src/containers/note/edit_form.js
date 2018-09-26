@@ -17,7 +17,6 @@ class EditForm extends Component{
 	shareNote = (key) => {
     let link = ""
     let noteurl = window.location.origin + '/sharenote/' + this.props.data.data.unique_id
-		console.log(noteurl)
     if(key=="facebook"){
       link = `https://www.facebook.com/sharer/sharer.php?u=${noteurl}`
     }
@@ -58,7 +57,6 @@ class EditForm extends Component{
 
 	formSubmit(formValue){
 		const {data} = this.props.data;
-		console.log(data);
 		this.props.editPost(formValue,data.id,()=>{
 			this.props.history.push(`/edit_note/${data.id}`);
 		});

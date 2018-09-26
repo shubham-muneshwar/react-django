@@ -13,13 +13,28 @@ class NotesHome extends Component{
 	componentDidMount() {
 		this.props.getApplications();
 	}
+
+  renderIndexScreen(){
+    if(this.props.location.pathname == '/'){
+      const notes = this.props.applications.notes
+      let notesCount = 0
+      if(notes) notesCount = notes.length
+      return(
+        <div className="container notes-index-container">
+          {(notesCount)?(<div>Click on the note for the details.</div>):(<div>Create your first note now.</div>)}
+        </div>
+      )
+    }
+  }
+
+
 	render(){
 		const isFetching = this.props.applications.isFetching;
 		const isFetched = this.props.applications.isFetched;
 		return(
-			<div className="container">
-				<div>No Notes</div>
-			</div>
+      <div className="panel-body">
+        {this.renderIndexScreen()}
+      </div>
 		);
 	}
 }

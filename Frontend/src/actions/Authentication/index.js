@@ -19,7 +19,6 @@ export function signup(formValue,callback){
 		}
 		axios.post(URL,formValue)
 		.then((response)=>{
-			console.log(response)
 			const{username}= response.data;
 			dispatch({type:SIGNUP_USER});
 			localStorage.setItem('token',response.data.token);
@@ -38,7 +37,6 @@ export function signup(formValue,callback){
 export function signin(formValue,callback){
 	const URL =`${ROOT_URL}home/login/token/`
 	return (dispatch) => {
-		console.log("loginError")
 		axios.post(URL,formValue)
 		.then((response)=>{
 			const {username}=response.data.user;

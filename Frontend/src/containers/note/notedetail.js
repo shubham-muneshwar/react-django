@@ -35,7 +35,6 @@ class PostDetail extends Component{
 	}
 	render(){
 		const {data} = this.props.data.note;
-		console.log(data);
 		const time = moment(data.published).format("MMM Do YY")
 		return(
 			<div className="panel">

@@ -32,7 +32,7 @@ class Notes extends Component{
 			<div className="leftpane">
 				<div className="leftpane-header">Notes</div>
 				<div className="notes-count">{notesCount} Notes Found</div>
-				{(notesCount == 0)?(<div>No Notes</div>):(<div/>)}
+				{(notesCount == 0)?(<div className="notes-index-sidebar">No Notes</div>):(<div/>)}
 				<div className="columns">
 					{notes.map(this.renderPost.bind(this))}
 				</div>

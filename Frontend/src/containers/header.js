@@ -22,7 +22,6 @@ class Header extends Component{
 		})
 	}
 	renderAuthMode(authenticated, props){
-		console.log(props.location.pathname, authenticated)
 		if(authenticated && ((props.location.pathname != '/signin') && (props.location.pathname != '/signup'))){
 			return(
 				<div className="nav-header">

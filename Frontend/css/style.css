@@ -299,3 +299,19 @@ a.notes-link {
 .form-control{
   background: #f4f4fc;
 }
+
+.notes-index-container{
+  font-size: 30px;
+  padding-top: 30%;
+  text-align: center;
+  font-family: inherit;
+  color: steelblue;
+}
+
+.notes-index-sidebar{
+  font-size: 30px;
+  padding-top: 30%;
+  text-align: center;
+  font-family: inherit;
+  color: steelblue;
+}

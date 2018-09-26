@@ -3,7 +3,7 @@ import {Field,reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {createPost} from "../../actions/index";
 import {Link} from "react-router-dom";
-import {renderInput} from '../../utils/redux-form-fields';
+import {renderInput, renderTextArea} from '../../utils/redux-form-fields';
 
 class PostNew extends Component{
 	onSubmit(formValue){
@@ -29,11 +29,10 @@ class PostNew extends Component{
 							/>
 					</div>
 					<div className="note-content">
-						<Field component={renderInput}
+						<Field component={renderTextArea}
 						label="Content"
 						type = "text"
 						name = "content"
-						placeholder="Note Content"
 						/>
 					</div>
 				</div>
