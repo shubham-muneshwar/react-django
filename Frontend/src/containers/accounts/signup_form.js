@@ -31,7 +31,7 @@ class Signup extends Component{
 
 	formSubmit(formValue){
 		this.props.signup(formValue,()=>{
-			this.props.history.push('/');
+			this.props.history.push('/signin');
 		})
 		const {signupError} = this.props.auth;
 		this.signupErrorToast(signupError)

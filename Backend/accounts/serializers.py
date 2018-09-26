@@ -22,7 +22,7 @@ class UserCreateSerializer(ModelSerializer):
 			'token'
 		]
 		extra_kwargs = {"password":{"write_only":True}}
-		
+
 	def get_token(self,object):
 		jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 		jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
@@ -45,4 +45,5 @@ class UserSerializer(ModelSerializer):
 		model = User
 		fields = [
 			'username',
+			'email',
 		]

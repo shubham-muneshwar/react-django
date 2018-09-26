@@ -143,6 +143,8 @@
   font-size: 13;
   font-family: gotham, helvetica, arial, sans-serif;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .notes:hover {

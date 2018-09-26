@@ -27,7 +27,9 @@ export function signup(formValue,callback){
 			callback();
 		})
 		.catch((error)=>{
-			var errorMsg = JSON.stringify(error.response.data)
+			var errorMsg = {}
+			if(error.response.status == 500) errorMsg = {email: "Email Field Required"}
+			else errorMsg = JSON.stringify(error.response.data)
 			dispatch({type:SIGNUP_ERROR,payload:errorMsg});
 		})
 	}

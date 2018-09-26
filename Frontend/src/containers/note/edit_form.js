@@ -16,18 +16,19 @@ class EditForm extends Component{
 
 	shareNote = (key) => {
     let link = ""
-    let noteurl = window.location.origin + '/sharenote/test'
+    let noteurl = window.location.origin + '/sharenote/' + this.props.data.data.unique_id
+		console.log(noteurl)
     if(key=="facebook"){
       link = `https://www.facebook.com/sharer/sharer.php?u=${noteurl}`
     }
     else if(key=="mail"){
-      link = "mailto:?subject=I wanted you to see this site&body=Check out this site http://www.website.com."
+      link = `mailto:?subject=Note From NoteMaker&body=Check out My Note created using NoteMaker ${noteurl}.`
     }
     else if(key=="twitter"){
-      link = "http://twitter.com/share?text=text goes here&url=http://google.com&hashtags=hashtag1,hashtag2,hashtag3"
+      link = `http://twitter.com/share?text=Check out My Note created using NoteMaker&url=${noteurl}`
     }
     else if(key=="linkedin"){
-      link = "https://www.linkedin.com/shareArticle?mini=true&url=http://developer.linkedin.com&title=LinkedIn%20Developer%20Network&summary=My%20favorite%20developer%20program&source=LinkedIn"
+      link = `https://www.linkedin.com/shareArticle?mini=true&url=${noteurl}&source=LinkedIn`
     }
     window.open(link, "pop", "width=600, height=400, scrollbars=no");
   }

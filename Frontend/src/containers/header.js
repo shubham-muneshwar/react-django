@@ -21,8 +21,8 @@ class Header extends Component{
 		})
 	}
 	renderAuthMode(authenticated, props){
-		console.log()
-		if(authenticated && ((props.location.pathname != '/signin') || (props.location.pathname != '/signup'))){
+		console.log(props.location.pathname, authenticated)
+		if(authenticated && ((props.location.pathname != '/signin') && (props.location.pathname != '/signup'))){
 			return(
 				<div className="nav-header">
 				 <Link to="/" className="btn btn-link"><div id='nav-logo'></div></Link>
@@ -34,8 +34,29 @@ class Header extends Component{
 		return(
 			<div></div>
 		);
-
 	}
+
+	renderMainContainer(authenticated, props){
+		if(authenticated && ((props.location.pathname != '/signin') && (props.location.pathname != '/signup'))){
+			return(
+				<SplitterLayout>
+					<div className="pane-left">
+						<div>
+							<Applications/>
+						</div>
+					</div>
+					<div className="pane-right">
+						<div>
+							<Route path = "/create_note" component= {requireAuth(PostNew)}/>
+							<Route path = "/view_note/:id" component = {requireAuth(ViewPost)}/>
+							<Route path = "/edit_note/:id" component = {requireAuth(EditPost)}/>
+						</div>
+					</div>
+				</SplitterLayout>
+			);
+		}
+	}
+
 	render(){
 		const {authenticated} = this.props;
 		return(
@@ -43,20 +64,7 @@ class Header extends Component{
 				{this.renderAuthMode(authenticated, this.props)}
 				<Route path = "/signup" component ={Signup}/>
 				<Route path = "/signin" component ={Signin}/>
-				<SplitterLayout>
-	        <div className="pane-left">
-						<div>
-							<Applications/>
-						</div>
-					</div>
-	        <div className="pane-right">
-						<div>
-							<Route path = "/create_note" component= {requireAuth(PostNew)}/>
-							<Route path = "/view_note/:id" component = {requireAuth(ViewPost)}/>
-							<Route path = "/edit_note/:id" component = {requireAuth(EditPost)}/>
-						</div>
-					</div>
-	      </SplitterLayout>
+				{this.renderMainContainer(authenticated, this.props)}
 			</div>
 		);
 	}
