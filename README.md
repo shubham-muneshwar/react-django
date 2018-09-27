@@ -1,33 +1,44 @@
-# react-django
 
-Backend Setup:-
+# Notes Application
+![N|Solid](https://i.imgur.com/F5lvhxX.png)
 
-cd Backend
-pip install -r requirements.txt
-createdb django-sample
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+NoteMaker is a simple application for taking notes powered by ReactJS and Django REST Framework.
 
+### Setup Instructions
 
-Frontend Setup:-
-cd Frontend
-npm install
-npm run dev
+#### Backend
+The NoteMaker requires [Python-2.7](https://www.python.org/download/releases/2.7/) to run.
+Also make sure you have MySQL up and running.
+Create a virtualenv to an isolated working copy of Python.
 
+Install the dependencies and devDependencies and start the server.
 
-TODOs:
+```sh
+$ cd Backend
+$ pip install -r requirements.txt
+$ python manage.py makemigrations
+$ python manage.py migrate
+$ python manage.py runserver
+```
 
-Frontend:
-Account
-1. Handle Success messages
-2. Forgot Password thing
-3. Link to go back from user sugnup
-Note
-4. Input -> TextArea
-5. Add Date and created BY
+To run the server on custom port.
 
+```sh
+$ python manage.py runserver 0.0.0.0:8000
+```
 
-Backend:
-Account
-1. Email Validation(Required)
+#### Frontend
+The Frontend requires [Node.js](https://nodejs.org/) v4+ to run.
+Once you have and node and npm installed , install the dependencies and devDependencies and start the server.
+
+```sh
+$ cd Frontend
+$ npm install
+$ npm run dev
+```
+
+Now the clientside react server is running one is localhost:8080 and the second django-api application is live at localhost:8000.
+
+You can visit the application by just going at http://localhost:8080 in your browser window.
+
+*Note: This Application is tested on Chrome Browser (1440 x 2043) and might not be compatible with smaller screen browsers/phone browsers.*
