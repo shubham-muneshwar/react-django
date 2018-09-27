@@ -7,9 +7,7 @@ import NoteDetail from "./notedetail";
 
 class ViewNote extends Component{
 	componentWillMount() {
-		// const {id} = this.props.match.params;
-		let id = '3e56af7e-b7be-4895-b094-fa4b9e991b28';
-		console.log(id)
+		const {id} = this.props.match.params;
 		this.props.viewSharedNote(id);
 	}
 	render(){

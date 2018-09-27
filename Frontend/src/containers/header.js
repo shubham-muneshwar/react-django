@@ -3,7 +3,7 @@ import {Link,Route,withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
 import Applications from "./note/note_index";
 import NoteNew from "./note/note_new";
-import ViewNote from './note/view_note';
+import ViewNote from './note/sharednote';
 import EditNote from './note/edit_note';
 import Signup from './accounts/signup_form';
 import Signin from './accounts/signin_form';
@@ -49,7 +49,7 @@ class Header extends Component{
 						<div>
 							<Route path = "/" component= {requireAuth(NotesHome)}/>
 							<Route path = "/create_note" component= {requireAuth(NoteNew)}/>
-							<Route path = "/view_note/:id" component = {requireAuth(ViewNote)}/>
+							<Route path = "/sharednote/:id" component = {requireAuth(ViewNote)}/>
 							<Route path = "/edit_note/:id" component = {requireAuth(EditNote)}/>
 						</div>
 					</div>
@@ -65,7 +65,6 @@ class Header extends Component{
 				{this.renderAuthMode(authenticated, this.props)}
 				<Route path = "/signup" component ={Signup}/>
 				<Route path = "/signin" component ={Signin}/>
-				<Route path = "/view_note/:id" component = {ViewNote}/>
 				{this.renderMainContainer(authenticated, this.props)}
 			</div>
 		);
