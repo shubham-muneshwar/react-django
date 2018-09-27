@@ -15,28 +15,30 @@ class PostNew extends Component{
 	render(){
 		const {fields:{title,content},handleSubmit} = this.props;
 		return(
-			<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-				<div className="note-detail-container">
-					<div className="note-detail-top-row">
-					 	<button className="btn btn-primary save-note" type="submit">Save</button>
-					</div>
-					<div className="note-title">
-						<Field component={renderInput}
-							label="Title"
+			<div className="container">
+				<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+					<div className="note-detail-container">
+						<div className="note-detail-top-row">
+						 	<button className="btn btn-primary save-note" type="submit">Save</button>
+						</div>
+						<div className="note-title">
+							<Field component={renderInput}
+								label="Title"
+								type = "text"
+								name = "title"
+								placeholder="Note Title"
+								/>
+						</div>
+						<div className="note-content">
+							<Field component={renderTextArea}
+							label="Content"
 							type = "text"
-							name = "title"
-							placeholder="Note Title"
+							name = "content"
 							/>
+						</div>
 					</div>
-					<div className="note-content">
-						<Field component={renderTextArea}
-						label="Content"
-						type = "text"
-						name = "content"
-						/>
-					</div>
-				</div>
-		</form>
+				</form>
+			</div>
 		);
 	}
 }
