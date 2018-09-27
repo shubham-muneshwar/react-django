@@ -1,15 +1,15 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {deletePost} from '../../actions';
+import {deleteNote} from '../../actions';
 import {changeMode} from '../../actions';
 import moment from 'moment';
 
-class PostDetail extends Component{
+class NoteDetail extends Component{
 	delete(){
 		const {data} = this.props.data.note;
 		console.log(this.props.data)
-		this.props.deletePost(data.id,()=>{
+		this.props.deleteNote(data.id,()=>{
 			this.props.data.history.push("/");
 		});
 	}
@@ -58,4 +58,4 @@ class PostDetail extends Component{
 	}
 }
 
-export default connect(null,{deletePost,changeMode})(PostDetail);
+export default connect(null,{deleteNote,changeMode})(NoteDetail);

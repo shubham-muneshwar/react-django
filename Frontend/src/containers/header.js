@@ -2,9 +2,9 @@ import React,{Component} from 'react';
 import {Link,Route,withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
 import Applications from "./note/note_index";
-import PostNew from "./note/note_new";
-import ViewPost from './note/view_note';
-import EditPost from './note/edit_note';
+import NoteNew from "./note/note_new";
+import ViewNote from './note/view_note';
+import EditNote from './note/edit_note';
 import Signup from './accounts/signup_form';
 import Signin from './accounts/signin_form';
 import NotesHome from './note/notes_home';
@@ -48,9 +48,9 @@ class Header extends Component{
 					<div className="pane-right">
 						<div>
 							<Route path = "/" component= {requireAuth(NotesHome)}/>
-							<Route path = "/create_note" component= {requireAuth(PostNew)}/>
-							<Route path = "/view_note/:id" component = {requireAuth(ViewPost)}/>
-							<Route path = "/edit_note/:id" component = {requireAuth(EditPost)}/>
+							<Route path = "/create_note" component= {requireAuth(NoteNew)}/>
+							<Route path = "/view_note/:id" component = {requireAuth(ViewNote)}/>
+							<Route path = "/edit_note/:id" component = {requireAuth(EditNote)}/>
 						</div>
 					</div>
 				</SplitterLayout>
@@ -65,6 +65,7 @@ class Header extends Component{
 				{this.renderAuthMode(authenticated, this.props)}
 				<Route path = "/signup" component ={Signup}/>
 				<Route path = "/signin" component ={Signin}/>
+				<Route path = "/view_note/:id" component = {ViewNote}/>
 				{this.renderMainContainer(authenticated, this.props)}
 			</div>
 		);

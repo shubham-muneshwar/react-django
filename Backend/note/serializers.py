@@ -31,3 +31,12 @@ class NoteCreateSerializer(ModelSerializer):
 
 	def get_author(self,obj):
 		return str(obj.author.username)
+
+class SharedNoteDetailSerializer(ModelSerializer):
+	author = SerializerMethodField()
+	class Meta:
+		model=Note
+		fields=['id','title','content','published','author','published', 'unique_id']
+		lookup_field='unique_id'
+	def get_author(self,obj):
+		return str(obj.author.username)

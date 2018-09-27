@@ -13,6 +13,7 @@ from rest_framework.permissions import(
 from note.serializers import (
 	NoteCreateSerializer,
 	NoteListSerializer,
+	SharedNoteDetailSerializer,
 	NoteDetailSerializer
 )
 from note.models import Note
@@ -44,3 +45,10 @@ class NoteUpdateView(RetrieveUpdateAPIView):
 	serializer_class=NoteCreateSerializer
 	permission_classes = [IsOwnerOrReadOnly]
 	lookup_field='pk'
+
+class SharedNoteView(RetrieveAPIView):
+	serializer_class=SharedNoteDetailSerializer
+	lookup_field='unique_id'
+	def get_queryset(self):
+		uuidkey = self.request.parser_context['kwargs']['unique_id']
+		return Note.objects.filter(unique_id=uuidkey)

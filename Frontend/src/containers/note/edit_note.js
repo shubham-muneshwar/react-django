@@ -1,19 +1,19 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {viewPost} from '../../actions';
+import {viewNote} from '../../actions';
 import Loading from '../../components/loading';
-import EditPostForm from './edit_form';
+import EditNoteForm from './edit_form';
 
-class EditPost extends Component{
+class EditNote extends Component{
 	componentWillMount() {
 		const {id} = this.props.match.params;
-		this.props.viewPost(id);
+		this.props.viewNote(id);
 	}
 	render(){
 		const {isFetching,isFetched} = this.props.note;
 		return(
 			<div className="container">
-				{isFetching?<Loading/>:(isFetched?<EditPostForm data={this.props.note}/>:<Loading/>)}
+				{isFetching?<Loading/>:(isFetched?<EditNoteForm data={this.props.note}/>:<Loading/>)}
 			</div>
 		);
 	}
@@ -25,4 +25,4 @@ function mapStateToPorps(state){
 }
 
 
-export default connect(mapStateToPorps,{viewPost})(EditPost);
+export default connect(mapStateToPorps,{viewNote})(EditNote);

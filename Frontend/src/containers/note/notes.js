@@ -1,12 +1,12 @@
 import React,{Component} from "react";
 import $ from 'jquery';
-import {viewPost} from '../../actions';
+import {viewNote} from '../../actions';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 
 class Notes extends Component{
 
-	renderPost(note){
+	renderNote(note){
 		let time = moment(note.published).format("MMM Do YY");
 		if(moment(note.published).isSame(moment(), 'day')) time = moment(note.published).fromNow();
 		return(
@@ -34,7 +34,7 @@ class Notes extends Component{
 				<div className="notes-count">{notesCount} Notes Found</div>
 				{(notesCount == 0)?(<div className="notes-index-sidebar">No Notes</div>):(<div/>)}
 				<div className="columns">
-					{notes.map(this.renderPost.bind(this))}
+					{notes.map(this.renderNote.bind(this))}
 				</div>
 			</div>
 		)

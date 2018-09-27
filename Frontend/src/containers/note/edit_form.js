@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {Field,reduxForm} from 'redux-form';
 import {Link,withRouter} from 'react-router-dom';
 import {renderInput, renderTextArea} from '../../utils/redux-form-fields';
-import {editPost} from '../../actions';
+import {editNote} from '../../actions';
 
-import {deletePost} from '../../actions';
+import {deleteNote} from '../../actions';
 import {changeMode} from '../../actions';
 
 import { confirmAlert } from 'react-confirm-alert'; // Import
@@ -34,7 +34,7 @@ class EditForm extends Component{
 
 	confirmDelete(){
 		const {data} = this.props.data;
-		this.props.deletePost(data.id,()=>{
+		this.props.deleteNote(data.id,()=>{
 			window.location.reload();
 		});
 	}
@@ -57,7 +57,7 @@ class EditForm extends Component{
 
 	formSubmit(formValue){
 		const {data} = this.props.data;
-		this.props.editPost(formValue,data.id,()=>{
+		this.props.editNote(formValue,data.id,()=>{
 			this.props.history.push(`/edit_note/${data.id}`);
 		});
 	}
@@ -114,4 +114,4 @@ EditForm = reduxForm({
 })(EditForm);
 
 
-export default connect(null,{editPost,deletePost,changeMode})(EditForm);
+export default connect(null,{editNote,deleteNote,changeMode})(EditForm);

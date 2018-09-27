@@ -1,13 +1,13 @@
 import React,{Component,PropTypes} from "react";
 import {Field,reduxForm} from "redux-form";
 import {connect} from "react-redux";
-import {createPost} from "../../actions/index";
+import {createNote} from "../../actions/index";
 import {Link} from "react-router-dom";
 import {renderInput, renderTextArea} from '../../utils/redux-form-fields';
 
-class PostNew extends Component{
+class NoteNew extends Component{
 	onSubmit(formValue){
-		this.props.createPost(formValue,()=>{
+		this.props.createNote(formValue,()=>{
 			 this.props.history.push("/");
 		})
 	}
@@ -49,7 +49,7 @@ function mapStateToProps(state){
 	}
 }
 
-export default connect(mapStateToProps, {createPost})(reduxForm({
-	form:'PostForm',
+export default connect(mapStateToProps, {createNote})(reduxForm({
+	form:'NoteForm',
 	fields:['title','content'],
-})(PostNew));
+})(NoteNew));

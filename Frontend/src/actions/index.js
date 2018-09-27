@@ -4,17 +4,17 @@ export const FETCHING_BLOGS = "FETCHING_BLOGS";
 export const FETCHED_BLOGS = "FETCHED_BLOGS";
 export const ERROR = "ERROR";
 
-export const CREATING_POST = "CREATING_POST";
-export const CREATED_POST = "CREATE_POST";
+export const CREATING_NOTE = "CREATING_NOTE";
+export const CREATED_NOTE = "CREATE_NOTE";
 
-export const DELETING_POST = 'DELETING_POST';
-export const DELETED_POST = 'DELETED_POST';
+export const DELETING_NOTE = 'DELETING_NOTE';
+export const DELETED_NOTE = 'DELETED_NOTE';
 
-export const FETCHING_POST = 'FETCHING_POST';
-export const FETCHED_POST = 'FETCHED_POST';
+export const FETCHING_NOTE = 'FETCHING_NOTE';
+export const FETCHED_NOTE = 'FETCHED_NOTE';
 
-export const EDITING_POST = 'EDITING_POST';
-export const EDITED_POST = 'EDITED_POST';
+export const EDITING_NOTE = 'EDITING_NOTE';
+export const EDITED_NOTE = 'EDITED_NOTE';
 
 import {tokenHeader} from '../utils/headers';
 
@@ -38,7 +38,7 @@ export function getApplications(){
 
 }
 
-export function createPost(fromValue,callback){
+export function createNote(fromValue,callback){
 	const sub_url = "application/api/create/";
 	const url = `${root_url}${sub_url}`;
 	//console.log(props);
@@ -48,55 +48,67 @@ export function createPost(fromValue,callback){
 		.then(() => callback());
 
 	return {
-		type:CREATED_POST,
+		type:CREATED_NOTE,
 		payload:request
 	}
 	/*return (dispatch) => {
-		dispatch({type:CREATING_POST});
+		dispatch({type:CREATING_NOTE});
 		request.then((response)=>{
-			dispatch({type:CREATED_POST,payload:response.data});
+			dispatch({type:CREATED_NOTE,payload:response.data});
 		});
 	}*/
 
 }
 
-export function deletePost(id,callback){
+export function deleteNote(id,callback){
 	const sub_url = `application/api/delete/${id}`;
 	const url = `${root_url}${sub_url}`;
 	const request = axios.delete(url,tokenHeader());
 
 	return (dispatch) => {
-		dispatch({type:DELETING_POST});
+		dispatch({type:DELETING_NOTE});
 		request.then(()=>{
-			dispatch({type:DELETED_POST});
+			dispatch({type:DELETED_NOTE});
 			callback();
 		});
 	}
 
 }
 
-export function viewPost(id){
+export function viewNote(id){
 	const sub_url = `application/api/detail/${id}`;
 	const url = `${root_url}${sub_url}`;
 	const request = axios.get(url,tokenHeader());
 	return (dispatch) =>{
-		dispatch({type:FETCHING_POST});
+		dispatch({type:FETCHING_NOTE});
 		request.then((response)=>{
-			dispatch({type:FETCHED_POST,payload:response.data});
+			dispatch({type:FETCHED_NOTE,payload:response.data});
 		});
 	}
 }
 
-export function editPost(fromValue,id,callback){
+export function editNote(fromValue,id,callback){
 	console.log(fromValue);
 	const sub_url = `application/api/update/${id}/`;
 	const url = `${root_url}${sub_url}`;
 	const request = axios.put(url,fromValue,tokenHeader());
 	return (dispatch) =>{
-		dispatch({type:EDITING_POST});
+		dispatch({type:EDITING_NOTE});
 		request.then((response)=>{
-			dispatch({type:EDITED_POST});
+			dispatch({type:EDITED_NOTE});
 			callback();
+		});
+	}
+}
+
+export function viewSharedNote(id){
+	const sub_url = `application/api/sharednote/${id}`;
+	const url = `${root_url}${sub_url}`;
+	const request = axios.get(url);
+	return (dispatch) =>{
+		dispatch({type:FETCHING_NOTE});
+		request.then((response)=>{
+			dispatch({type:FETCHED_NOTE,payload:response.data});
 		});
 	}
 }

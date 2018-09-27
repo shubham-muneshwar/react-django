@@ -1,20 +1,22 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {viewPost} from '../../actions';
+import {viewSharedNote} from '../../actions';
 
 import Loading from "../../components/loading";
-import PostDetail from "./notedetail";
+import NoteDetail from "./notedetail";
 
-class ViewPost extends Component{
+class ViewNote extends Component{
 	componentWillMount() {
-		const {id} = this.props.match.params;
-		this.props.viewPost(id);
+		// const {id} = this.props.match.params;
+		let id = '3e56af7e-b7be-4895-b094-fa4b9e991b28';
+		console.log(id)
+		this.props.viewSharedNote(id);
 	}
 	render(){
 		const {isFetching,isFetched} = this.props.note;
 		return(
 			<div className="container">
-				{isFetching?<Loading/>:(isFetched?<PostDetail data={this.props}/>:<Loading/>)}
+				{isFetching?<Loading/>:(isFetched?<NoteDetail data={this.props}/>:<Loading/>)}
 			</div>
 		)
 	}
@@ -26,4 +28,4 @@ function mapStateToProps(state){
 	}
 }
 
-export default connect(mapStateToProps,{viewPost})(ViewPost);
+export default connect(mapStateToProps,{viewSharedNote})(ViewNote);
